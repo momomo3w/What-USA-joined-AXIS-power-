@@ -1,0 +1,258 @@
+add_namespace = aote
+country_event = { # North Sakhalin for Resources - JAP
+	id = aote.1
+	title = aote.1.t
+	desc = aote.1.d
+	picture = GFX_report_event_soviet_soldiers
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.1.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		name = aote.1.b
+	}
+}
+news_event = { # Soviet Union Declares war on USA
+	id = aote.2
+	title = aote.2.t
+	desc = aote.2.d
+	picture = GFX_news_event_stalin_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.2.a
+	}
+}
+country_event = { # Polish and Czech Divisions - Focus
+	id = aote.3
+	title = aote.3.t
+	desc = aote.3.d
+	picture = GFX_report_event_polish_army
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.3.a
+		ai_chance = {
+			base = 1000
+		}
+	}
+}
+news_event = { # Raid on Chongqing
+	id = aote.4
+	title = aote.4.t
+	desc = aote.4.d
+	picture = GFX_news_event_chongqing_bombing
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.4.a
+		effect_tooltip = {
+			CHI = { 
+				add_war_support = -0.15
+			}
+			605 = {
+				damage_building = {
+					type = infrastructure
+					damage = 2
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 4
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 3
+				}
+			}
+		}
+	}
+}
+news_event = { # Death of Chiang Kai Shek
+	id = aote.5
+	title = aote.5.t
+	desc = aote.5.d
+	picture = GFX_news_event_death_of_chiang_kai_shek
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.5.a
+	}
+}
+news_event = { # Stalin annouces War of Annihaltion
+	id = aote.6
+	title = aote.6.t
+	desc = aote.6.d
+	picture = GFX_news_event_stalin_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.6.a
+	}
+}
+country_event = { # Mitsumasa Yonai - Wprowadzenie
+	id = aote.7
+	title = aote.7.t
+	desc = aote.7.d
+	picture = GFX_report_event_japanese_army_parade
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.7.a
+
+	}
+}
+news_event = { # Japanese Invasion of Dutch East Indies
+	id = aote.8
+	title = aote.8.t
+	desc = aote.8.d
+	picture = GFX_news_event_japanese_army
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.8.a
+		effect_tooltip = { 
+			add_named_threat = {
+				threat = 5
+				name = JAP_take_dutch_east_indies_by_force_threat
+			} 
+		}
+	}
+}
+country_event = { # Japanese proposition
+	id = aote.9
+	title = aote.9.t
+	desc = aote.9.d
+	picture = GFX_report_event_japanese_army_parade
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.9.a
+		news_event = aote.13
+		JAP = {add_political_power = -150}
+					INS = {
+						give_resource_rights = { receiver = JAP state = 672 }
+						give_resource_rights = { receiver = JAP state = 335 }
+						give_resource_rights = { receiver = JAP state = 334 }
+					}
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		name = aote.9.b
+	}
+}
+news_event = { # Fall of Midway
+	id = aote.10
+	title = aote.10.t
+	desc = aote.10.d
+	picture = GFX_news_event_stalin_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.10.a
+		effect_tooltip = { 
+			USA = {
+				add_war_support = -0.1
+				add_stability = -0.1
+				add_political_power = -100
+			}
+		}
+	}
+}
+news_event = { # Japanese defeat at midway
+	id = aote.11
+	title = aote.11.t
+	desc = aote.11.d
+	picture = GFX_news_event_stalin_speech
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.11.a
+		effect_tooltip = { 
+			JAP = {
+				add_war_support = -0.1
+				add_stability = -0.1
+				add_political_power = -100
+			}
+		}
+	}
+}
+country_event = { # Naval Cooperation with Japan for SOV and ENG, the same event
+	id = aote.12
+	title = aote.12.t
+	desc = aote.12.d
+	picture = GFX_report_event_japanese_army_parade
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.12.a
+		if = {
+			limit = {TAG = ENG}
+			JAP = {
+				add_tech_bonus = {
+						name = JAP_naval_cooperation_with_ENG
+						bonus = 1.0
+						uses = 2
+						category = cv_tech
+					}
+			}
+		}
+		if = {
+			limit = {TAG = SOV}
+			JAP = {
+				add_tech_bonus = {
+					name = SOV_the_red_fleet_dynamic_modifier
+					bonus = 1.0
+					uses = 2
+					category = ship_modules_tech
+				}
+			}
+		}
+				JAP = {
+						navy_experience = 25
+						add_doctrine_cost_reduction = {
+							name = land_doc_bonus
+							cost_reduction = 0.5
+							uses = 1
+							category = naval_doctrine
+						}
+				}
+				navy_experience = 25
+				add_doctrine_cost_reduction = {
+					name = land_doc_bonus
+					cost_reduction = 0.5
+					uses = 1
+					category = naval_doctrine
+				}
+		ai_chance = {
+			base = 1000
+		}
+	}
+	option = {
+		name = aote.12.b
+	}
+}
+news_event = { #
+	id = aote.13
+	title = aote.13.t
+	desc = aote.13.d
+	picture = GFX_news_event_usa_japan_at_war
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = aote.13.a
+		effect_tooltip = { 
+					JAP = {add_political_power = -150}
+					INS = {
+						give_resource_rights = { receiver = JAP state = 672 }
+						give_resource_rights = { receiver = JAP state = 335 }
+						give_resource_rights = { receiver = JAP state = 334 }
+					}
+		}
+	}
+}

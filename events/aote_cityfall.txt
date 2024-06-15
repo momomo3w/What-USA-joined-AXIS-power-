@@ -1,0 +1,43 @@
+add_namescape = aote_cityfall
+# Seattle
+news_event = {
+    id = aote_cityfall.1
+	title = aote_cityfall.1.t
+	desc = aote_cityfall.1.d
+    picture = GFX_news_event_004
+
+    major = yes   
+
+     trigger = {
+        386 = { is_controlled_by = CAN }
+        386 = { is_owned_by = USA }
+        CAN = { has_war_with = USA }
+        NOT = { has_global_flag = fall_of_seattle_flag}
+    }
+
+    immediate = {
+        set_global_flag = fall_of_seattle_flag
+    }
+
+    mean_time_to_happen = {
+        days = 2
+    }
+
+    option = {
+        name = aote_cityfall.1.a
+        trigger = {
+            NOT = {
+                TAG = CAN
+                TAG = USA
+            }
+        }
+    }
+    option = {
+        name = aote_cityfall.1.b
+        trigger = { TAG = CAN }
+    }
+    option = {
+        name = aote_cityfall.1.c
+        trigger = { TAG = USA }
+    }
+}
